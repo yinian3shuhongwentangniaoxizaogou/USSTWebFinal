@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>注册 - 食堂点评系统</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <script src="../static/js/echarts.min.js" th:src="@{js/echarts.min.js}"></script>
+    <link rel="stylesheet" href="../static/css/amazeui.min.css" th:href="@{css/amazeui.min.css}"/>
+    <link rel="stylesheet" href="../static/css/amazeui.datatables.min.css" th:href="@{css/amazeui.datatables.min.css}"/>
+    <link rel="stylesheet" href="../static/css/app.css" th:href="@{css/app.css}">
+    <style>
+        body {
+            /* 此处如果单页面测试会读取不到图片，运行时正常 */
+            background: url(static/img/background.jpg) no-repeat;
+            background-size: cover;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body data-type="login">
+<script src="../static/js/theme.js" th:src="@{js/theme.js}"></script>
+<div class="am-g tpl-g">
+
+    <div class="tpl-login">
+        <div class="tpl-login-content">
+            <div class="tpl-login-title">注册用户</div>
+            <span class="tpl-login-content-info">
+                  创建一个新的用户
+            </span>
+            <div class="alert alert-danger" role="alert" th:if="${param.error}">
+                注册失败！
+            </div>
+
+            <form class="am-form tpl-form-line-form" th:action="@{/register}" method="post" th:object="${userForm}">
+                <div class="am-form-group">
+                    <input type="email" class="tpl-form-input" placeholder="邮箱" th:field="*{email}">
+                </div>
+
+                <div class="am-form-group">
+                    <input type="text" class="tpl-form-input" placeholder="用户名" th:field="*{username}">
+                </div>
+
+                <div class="am-form-group">
+                    <input type="password" class="tpl-form-input" placeholder="请输入密码" th:field="*{password}">
+                </div>
+
+                <div class="am-form-group">
+                    <input type="password" class="tpl-form-input" placeholder="再次输入密码" th:field="*{passwordConfirm}">
+                </div>
+
+                <div class="am-form-group">
+                    <button type="submit"
+                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">注册
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/amazeui.min.js" th:src="@{js/amazeui.min.js}"></script>
+<script src="../static/js/app.js" th:src="@{js/app.js}"></script>
+
+</body>
+
+</html>
